@@ -1,16 +1,30 @@
 package com.csj.CsjProj2;
 
-import java.security.Principal;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import com.csj.CsjProj2.Model.Employees;
+import com.csj.CsjProj2.Model.service.IEmployeeService;
+
+@Controller
 public class CsjProj2Controller {
-	@GetMapping("/")
-	public String echoTheUsersEmailAddress(Principal principal) {
-		return "Hey there! Your email address is: " + principal.getName() ;
 	
-	}
+	
+	
+	@Autowired
+    private IEmployeeService EmployeeService;
+	
+	@GetMapping("/showEmployees")
+    public String findEmployees(Model model) {
+
+
+        model.addAttribute("employees", EmployeeService.findAll());
+
+        return "showData";
+    }
 	
 }
