@@ -1,22 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf + Spring Security</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<div th:replace="fragments/header :: header"/>
+
+
 <table border="1">
+<h2 >Employee Listing</h2>
     <thead>
         <tr>
-            <th th:text="#{msg.id}" />
-            <th th:text="#{msg.name}" />
+            <th data-sort-prop="id">Id</th>
+            <th data-sort-prop="name">Name</th>
+            <th data-sort-prop="birth">Birth Date</th>
+            <th data-sort-prop="gender">Gender</th>
         </tr>
     </thead>
     <tbody>
-        <tr th:each="employee ,iStat : ${employees}""
-            th:style="${iStat.odd}? 'font-weight: bold;'"
-            th:alt-title="${iStat.even}? 'even' : 'odd'">
-            <td th:text="${book.id}" />
-            <td th:text="${book.name}" />
+        <tr th:each="employees ,iStat : ${employees}">
+            <td th:text="${employees.getId()}" />
+            <td th:text="${employees.getFullName()}" />
+            <td th:text="${employees.getBirthDate()}" />
+            <td th:text="${employees.getGender()}" />
         </tr>
     </tbody>
 </table>
-<div th:if="${bookPage.totalPages > 0}" class="pagination"
+<div th:if="${employeePage.totalPages > 0}" class="pagination"
     th:each="pageNumber : ${pageNumbers}">
-    <a th:href="@{/listBooks(size=${bookPage.size}, page=${pageNumber})}"
+    <a th:href="@{/listBooks(size=${employeePage.size}, page=${pageNumber})}"
         th:text=${pageNumber}
-        th:class="${pageNumber==bookPage.number + 1} ? active"></a>
+        th:class="${pageNumber==employeePage.number + 1} ? active"></a>
 </div>

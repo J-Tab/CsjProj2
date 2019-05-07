@@ -1,0 +1,66 @@
+﻿body 
+{
+    background: url(LoginBackground.png);
+    background-size: cover;
+}
+
+.container {
+    width: 320px;
+    height: 420px;
+    background: transparent;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 150px 30px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 50px);
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 40px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.container p {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .container input[type="text"], input[type="password"] {
+        border: none;
+        border-bottom: 1.5px solid #fff;
+        background: transparent;
+        height: 40px;
+        color: #fff;
+        font-size: 20px;
+       
+    }
+
+    .container input[type="submit"] {
+
+        height: 40px;
+        background: #3232ff;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 20px;
+    }
+
